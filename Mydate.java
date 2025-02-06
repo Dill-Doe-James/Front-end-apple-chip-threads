@@ -100,3 +100,15 @@ public class Mydate {
         return today;
     }
 }
+
+public class SDDate1 {
+
+    public static void main(String[] args) {
+        Mydate day;
+        day = new Mydate();
+        day.nhap();  
+//        day = day.ngayHomsau();
+        day = day.congNgay(20);
+        day.hienThi();
+    }
+}
