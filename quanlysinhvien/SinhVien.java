@@ -9,38 +9,45 @@ package quanlysinhvien;
  * @author student
  */
 import java.util.Scanner;
-public class SinhVien extends Person {
+public class SinhVien extends Person{
     private String MSSV;
-    private Mydate registerDate;
+    private float DTB;
+    private myDate ngaynhaphoc;
     public SinhVien(){
         super();
-        this.MSSV = new String("00000");
-        this.registerDate = new Mydate();
+        this.MSSV = "NULL";
+        this.ngaynhaphoc = new myDate();        
     }
     public SinhVien(SinhVien sv){
         super(sv);
         this.MSSV = new String(sv.MSSV);
-        this.registerDate = new Mydate(sv.registerDate);
+        this.ngaynhaphoc = new myDate(sv.ngaynhaphoc);
+    }
+    public boolean type(){
+        return false;
     }
     @Override
-    public void nhap(){                
+    public void nhap(){
         Scanner sc = new Scanner(System.in);
         super.nhap();
-        System.out.println("Nhap MSSV: ");
+        System.out.print("Nhap MSSV: ");
         this.MSSV = sc.nextLine();
-        System.out.println("Ngay nhap hoc: ");
-        this.registerDate.nhap();
+        System.out.print("Nhap diem trung binh: ");
+        sc = new Scanner(System.in);
+        this.DTB = sc.nextFloat();
+        
     }
     @Override
     public void xuat(){
+        System.out.println("----------------------------------");
+//        System.out.println("Thong tin sinh vien:");
         super.xuat();
         System.out.println("MSSV: " + this.MSSV);
-        System.out.print("Ngay nhap hoc: ");
-        this.registerDate.xuat();
+        System.out.println("Diem trung binh: " + this.DTB);
+        System.out.println("----------------------------------");
     }
     @Override
-    public String toString(){
-       return  "Ho va ten: " + this.getName()+ "\nMSSV: " + this.MSSV +
-                    "\nNgay nhap hoc: " +this.registerDate.toString();
+    public int getYear(){
+        return super.getYear();
     }
 }

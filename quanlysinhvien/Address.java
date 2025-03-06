@@ -43,16 +43,16 @@ public class Address {
         boolean dk = true;
         do {
             try {
-                System.out.println("Nhap so nha: ");
+                System.out.print("Nhap so nha: ");
                 this.so = sc.nextInt();
                 sc = new Scanner(System.in);
-                System.out.println("Nhap duong: ");
+                System.out.print("Nhap duong: ");
                 this.duong = sc.nextLine();
-                System.out.println("Nhap phuong: ");
+                System.out.print("Nhap phuong: ");
                 this.phuong = sc.nextLine();
-                System.out.println("Nhap quan: ");
+                System.out.print("Nhap quan: ");
                 this.quan = sc.nextLine();
-                System.out.println("Nhap tinh: ");
+                System.out.print("Nhap tinh: ");
                 this.tinh = sc.nextLine();
                 dk = false;
             } catch (Exception e) {
