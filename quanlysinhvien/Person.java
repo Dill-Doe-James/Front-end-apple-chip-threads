@@ -50,4 +50,7 @@ public class Person {
     public int getYear(){
         return this.birthday.getYear();
     }
+    public String getTinh(){
+        return this.diachi.getTinh();
+    }
 }

@@ -23,7 +23,7 @@ public class SinhVien extends Person{
         this.MSSV = new String(sv.MSSV);
         this.ngaynhaphoc = new myDate(sv.ngaynhaphoc);
     }
-    public boolean type(){
+    public boolean svnn(){
         return false;
     }
     @Override
@@ -46,8 +46,13 @@ public class SinhVien extends Person{
         System.out.println("Diem trung binh: " + this.DTB);
         System.out.println("----------------------------------");
     }
-    @Override
-    public int getYear(){
-        return super.getYear();
+    public float getDTB(){
+        return this.DTB;
+    }
+    public int sosanh(SinhVien sv){
+        int check = 0;
+        if(this.DTB < sv.DTB) check = -1;
+        if(this.DTB > sv.DTB) check = 1;
+        return check;
     }
 }

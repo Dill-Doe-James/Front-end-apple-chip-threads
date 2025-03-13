@@ -66,4 +66,7 @@ public class Address {
         System.out.println(so + " duong " + duong + ", phuong " + phuong
                 + ", quan " + ", tinh " + tinh);
     }
+    public String getTinh(){
+        return this.tinh;
+    }
 }

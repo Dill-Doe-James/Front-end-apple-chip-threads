@@ -13,28 +13,20 @@ import java.util.Scanner;
 public class LopHoc {
 
     private GiangVien gv;
-    private SinhVien[] sv;
+    private SinhVien[] list;
     private int soluongsv;
-    private SinhVienNN[] svnn;
-    private int soluongsvnn;
 
     public LopHoc() {
         this.gv = new GiangVien();
-        this.sv = new SinhVien[100];
-        this.svnn = new SinhVienNN[100];
+        this.list = new SinhVien[100];
         this.soluongsv = 0;
-        this.soluongsvnn = 0;           
     }
 
     public LopHoc(LopHoc room) {
         this.gv = new GiangVien(room.gv);
-        this.sv = new SinhVien[room.soluongsv];
-        this.svnn = new SinhVienNN[room.soluongsvnn];
+        this.list = new SinhVien[room.soluongsv];
         for (int i = 0; i < soluongsv; i++) {
-            this.sv[i] = new SinhVien(room.sv[i]);
-        }
-        for (int i = 0; i < soluongsvnn; i++) {
-            this.svnn[i] = new SinhVienNN(room.svnn[i]);
+            this.list[i] = new SinhVien(room.list[i]);
         }
     }
 
@@ -44,39 +36,59 @@ public class LopHoc {
         Scanner sc = new Scanner(System.in);
         System.out.print("So luong sinh vien: ");
         this.soluongsv = sc.nextInt();
-        this.soluongsvnn = 0;
+        sc = new Scanner(System.in);
         for (int i = 0; i < soluongsv; i++) {
             System.out.print("Is forgein? (y/n) ");
             String x = sc.nextLine();
             if (x.equals("n")) {
                 System.out.println("Nhap thong tin sinh vien VN:");
-                this.sv[i] = new SinhVien();
-                this.sv[i].nhap();
-            }
-            else if(x.equals("y")){
+                this.list[i] = new SinhVien();
+
+            } else if (x.equals("y")) {
                 System.out.println("Nhap thong tin sinh vien NN: ");
-                this.svnn[this.soluongsvnn] = new SinhVienNN();
-                this.svnn[this.soluongsvnn].nhap();
-                this.soluongsv++;
+                this.list[i] = new SinhVienNN();
+
+            }
+            this.list[i].nhap();
+        }
+    }
+
+    public void xuat() {
+        for (int i = 0; i < soluongsv; i++) {
+            this.list[i].xuat();
+        }
+    }
+
+    public int getNumber() {
+        return this.soluongsv;
+    }
+
+    public int getBirthday(int i) {
+        return this.list[i].getYear();
+    }
+
+    public String getTinh(int i) {
+        return this.list[i].getTinh();
+    }
+
+    public void xuat(int i) {
+        this.list[i].xuat();
+    }
+
+    public void swap(SinhVien sv1, SinhVien sv2) {
+        SinhVien temp = new SinhVien(sv1);
+        sv1 = new SinhVien(sv2);
+        sv2 = new SinhVien(temp);
+    }
+
+    public void sapxepDTB() {
+        for (int i = 0; i < this.soluongsv; i++) {
+            for (int j = i + 1; j < this.soluongsv; i++) {
+                if (list[i].sosanh(list[i + 1]) == 1) {
+                    swap(list[i], list[i + 1]);
+                }
             }
         }
     }
-    public int getNumber(){
-        return this.soluongsv;
-    }
-    public int getNumberNN(){
-        return this.soluongsvnn;
-    }
-    public int getBirthday(int i){
-        return this.sv[i].getYear();
-    }
-    public int getBirthdayNN(int i){
-        return this.svnn[i].getYear();
-    }
-    public void xuat(int i){
-        sv[i].xuat();
-    }
-    public void xuatNN(int i){
-        svnn[i].xuat();
-    }
+
 }

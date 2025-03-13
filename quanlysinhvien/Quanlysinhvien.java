@@ -4,6 +4,7 @@
  */
 package quanlysinhvien;
 
+
 /**
  *
  * @author student
@@ -11,27 +12,27 @@ package quanlysinhvien;
 public class Quanlysinhvien {
 
     /**
-     * @param args the command line arguments
      */
     public static void sameBirthday(LopHoc room){
-        for(int i=0;i<room.getNumber()-room.getNumberNN();i++){
+        for(int i=0;i<room.getNumber();i++){
             if(room.getBirthday(i) == 2004){
                 room.xuat(i);
             }
         }
-        for(int i=0;i<room.getNumberNN();i++){
-            if(room.getBirthdayNN(i) == 2004){
-                room.xuatNN(i);
+    }
+    public static void trungtinh(LopHoc room){
+        for(int i=0;i<room.getNumber();i++){
+            if (room.getTinh(i).equals("can tho")){
+                room.xuat(i);
             }
         }
     }
     public static void main(String[] args) {
-        SinhVien []list;
-//        list = new SinhVien[100];
         LopHoc room = new LopHoc();
         room.nhap();
-//        list = sameBirthday(room);
-        sameBirthday(room);
+//        sameBirthday(room);
+        room.sapxepDTB();
+        room.xuat();
      }
     
 }

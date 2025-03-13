@@ -17,10 +17,10 @@ public class SinhVienNN extends SinhVien {
     }
     public SinhVienNN(SinhVienNN sv){
         super(sv);
-        this.nation = new String(sv.nation);
+        this.nation = sv.nation;
     }
     @Override
-    public boolean type(){
+    public boolean svnn(){
         return true;
     }
     @Override
@@ -30,6 +30,7 @@ public class SinhVienNN extends SinhVien {
         System.out.print("Nhap quoc tich: ");
         this.nation = sc.nextLine();
     }
+    @Override
     public void xuat(){
         System.out.println("----------------------------------");
         super.xuat();
